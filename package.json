@@ -1,0 +1,22 @@
+{
+  "name": "figma-webfont-flow",
+  "version": "1.0.0",
+  "description": "Transform a Figma icon project into a complete webfont set (WOFF, WOFF2, EOT, TTF)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create": "node index.js"
+  },
+  "keywords": [
+    "figma",
+    "webfont",
+    "svg",
+    "woff",
+    "ttf"
+  ],
+  "author": "Rafael Pradella",
+  "license": "ISC",
+  "dependencies": {
+    "webfont": "^8.1.3"
+  }
+}
