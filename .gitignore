@@ -61,3 +61,5 @@ typings/
 .next
 config/projectInfo.js
 config/*.js
+/config/projectInfo.js
+/config/*.js
