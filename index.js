@@ -1,14 +1,13 @@
 ﻿const webfont = require("webfont");
 const axios = require("axios");
 const project = require("./config/projectInfo.js");
-const apiRoot = 'https://api.figma.com/v1';
 
+const GetSVG = {
 
-const GetSVGFiles = {
+    apiRoot: 'https://api.figma.com/v1',
 
     axios: axios.create({
-        baseURL: apiRoot,
-        timeout: 1000,
+        baseURL: this.apiRoot,
         headers: {"Content-Type": "application/json", "x-figma-token": project.projectToken,}
     }),
 
@@ -17,14 +16,17 @@ const GetSVGFiles = {
     },
 
     requestFigmaFile(){
-        this.axios.get(this.fileURL)
-            .then(function(response) {
-                console.log(response.status);
-        });
+        this.axios.get(this.fileURL())
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 }
 
-GetSVGFiles.requestFigmaFile();
+GetSVG.requestFigmaFile();
 
-module.exports = GetSVGFiles; 
+module.exports = GetSVG; 
 

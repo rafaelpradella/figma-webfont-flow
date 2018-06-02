@@ -22,12 +22,12 @@ describe('Request Figma Project', () => {
     });
     
     it('Request _self.getURL() content and it´s status is OK', () => {
-        _self.axios.get(_self.fileURL)
+        _self.axios.get(_self.fileURL())
             .then((response) => {
-                assert.isOk();
+                expect(response.status).is.equal.to("200");
             })
             .catch((error) => {
-                assert.isNotOk();
+                assert.fail(error);
             });
     });
 });
