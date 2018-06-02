@@ -4,7 +4,7 @@
   "description": "Transform a Figma icon project into a complete webfont set (WOFF, WOFF2, EOT, TTF)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha tests/**.spec.js",
     "create": "node index.js"
   },
   "keywords": [
@@ -18,5 +18,9 @@
   "license": "ISC",
   "dependencies": {
     "webfont": "^8.1.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
