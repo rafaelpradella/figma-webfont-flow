@@ -59,7 +59,3 @@ typings/
 
 # next.js build output
 .next
-config/projectInfo.js
-config/*.js
-/config/projectInfo.js
-/config/*.js
