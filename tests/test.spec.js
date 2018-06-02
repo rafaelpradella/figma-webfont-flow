@@ -1,15 +1,16 @@
 const expect = require("chai").expect;
+var assert = require('chai').assert;
 const request = require("request");
-const GetSVGFiles = require("../index.js")
+const _self = require("../index.js");
 
 describe('Request Figma Project', () => {
     
-    it('should exist GetSVGFiles', () => {
-        expect(GetSVGFiles).to.exist;    
+    it('should exist _self', () => {
+        expect(_self).to.exist;    
     });
 
-    it('GetSVGFiles.getURL() should be a string', () => {
-        expect(GetSVGFiles.getURL).to.be.string;
+    it('_self.fileURL() should be a string', () => {
+        expect(_self.fileURL).to.be.string;
     });
 
     it('You are connected right now', () => {
@@ -20,11 +21,13 @@ describe('Request Figma Project', () => {
         })
     });
     
-    it('Request GetSVGFiles.getURL() content and it´s status is OK', () => {
-        let isRequested = null;
-        request( GetSVGFiles.projectURL(), function (err, resp) {
-            let isRequested = (resp.statusCode == "200" && !err) ? true : false;
-            expect(isRequested).to.be.true;
-        });
+    it('Request _self.getURL() content and it´s status is OK', () => {
+        _self.axios.get(_self.fileURL)
+            .then((response) => {
+                assert.isOk();
+            })
+            .catch((error) => {
+                assert.isNotOk();
+            });
     });
 });
